@@ -1,0 +1,29 @@
+<p style="color: brown;">component-to-view works!</p>
+<h3>Họ và tên: {{name}}</h3>
+<h4>Tuổi {{age}}</h4>
+<h4>Tình trạnh hôn nhân: {{isMarried}}</h4>
+<h4>Tình trạnh hôn nhân: {{isMarried ? 'Đã kết hôn':'Độc thân'}}</h4>
+<h2>Tên : {{showInfo()}}</h2>
+<img src="{{imgLink}}" width="200" height="200">
+<br>
+<a href="{{imgLink}}">Đây là ảnh</a>
+<hr>
+<h1>Property binding</h1>
+<img [src]="imgLink" [width]="imgWidth" height="200">
+<hr>
+<h2>Attribute binding</h2>
+<table border='1' [attr.width]="tbWidth">
+    <tr>
+        <td>ID</td>
+        <td>Họ tên</td>
+        <td>Sdt</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Nguyễn Hoàng Hiệp</td>
+        <td>123456</td>
+    </tr>
+</table>
+<hr>
+<h2>style binding</h2>
+<label [style.color]="isColor ? 'red' :'black'">Đây là lable</label>

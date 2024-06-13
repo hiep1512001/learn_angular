@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+
+<form>
+    <div class="mb-3">
+        <h3>Họ Tên: {{name}}</h3>
+        <label class="form-label">Họ tên</label>
+        <input
+        [ngModelOptions]="{standalone:true}"
+            type="text"
+            class="form-control"
+            placeholder="Nhập họ tên"
+            [(ngModel)]="name"
+        />
+    </div> 
+    <label>Giới tính: {{genre==0 ?'Nữ':'Nam'}}</label>
+    <select [ngModelOptions]="{standalone:true}" class="form-control" [(ngModel)]="genre" >
+        <option value="0">Nữ</option>
+        <option value="1">Nam</option>
+    </select>
+</form>
+
