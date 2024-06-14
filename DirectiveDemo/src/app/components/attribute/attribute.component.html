@@ -1,0 +1,25 @@
+<!-- <h3 [class.cl-red]="true"
+[class.pd-10]="true"
+[class.border-blue]="true">Chào mừng các bạn</h3> -->
+<hr>
+<h3>ngClass</h3>
+<h3 [ngClass]="{'cl-red':isSpecial==true,
+                'pd-10':isSpecial==true,
+                'border-yellow':isSpecial==true,
+                'border-cyan':isSpecial==false
+}"
+>Chào mừng các bạn</h3>
+<button class="btn btn-warning" (click)="onToggle()">Toggle Button</button>
+<h3 class="mt-3" [ngClass]="setClass()"
+>Chào mừng các bạn</h3>
+<button class="btn btn-warning" (click)="onToggle()">Toggle Button</button>
+<hr>
+<h3> ngStyle</h3>
+<h3  [ngStyle]="{
+    'border': isSpecial===true? 'solid 2px cyan':'',
+    'padding.px': isSpecial===true?  '20':'',
+    'color': isSpecial===true? 'red':''
+    }"
+>Chào mừng các bạn</h3>
+<h3 class="mt-2"  [ngStyle]="setStyle()"
+>Chào mừng các bạn</h3>

@@ -1,0 +1,79 @@
+<h2 *ngIf="isShow===true ">Họ tên: {{username}}</h2>
+<button type="button" class="btn btn-warning"
+(click)="onToggle()">Toggle</button>
+<hr>
+<label *ngIf="isChecked; else elseBlock" style="color: green;" >Hợp lệ</label>
+<ng-template #elseBlock>
+    <label style="color: red;" >Không hợp lệ</label>
+</ng-template>
+<div class="form-check">
+    <input checked class="form-check-input" type="radio" name="rdcheck" id="" (click)="onCheckChange(true)"/>
+    <label class="form-check-label" for=""> Hợp lệ </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio"name="rdcheck"id=""
+    (click)="onCheckChange(false)" />
+    <label class="form-check-label" for="">
+        Không hợp lệ
+    </label>
+</div>
+<hr>
+<div class="mb-3">
+    <label for="" class="form-label">Tuổi:</label>
+    <input
+    [(ngModel)]="Age"
+        type="text"
+        class="form-control"
+        placeholder="Nhập tuổi:"
+    />
+</div>
+<ng-container *ngIf="Age>18; else elseBlockNotAge">
+    <h3  style="color: green;">Đủ tuổi</h3>
+</ng-container>
+<ng-template #elseBlockNotAge>
+    <h3  style="color: red;">Chưa đủ tuổi</h3>
+</ng-template>
+<hr>
+<hr>
+<h2>ngFor</h2>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of names">{{item}}</li>
+</ul>
+<ng-container *ngIf="products.length!=0; else elseBlockData">
+    <table class="table table-bordered">
+        <tr>
+            <th>Số thứ tự</th>
+            <th>Tên</th>
+            <th>Giá</th>
+        </tr>
+        <tr *ngFor="let item of products; 
+         let i = index 
+         let f=first 
+         let l=last
+         let o=odd
+         let e=even
+         trackBy:myTrackByFunction
+         "
+         
+        [style.background-color]="f==true ? 'green':l==true ? 'cyan':e==true?'red':o==true?'yellow':'white'">
+            <td>{{i+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}} VND</td>
+        </tr>
+        </table>
+</ng-container>
+<ng-template #elseBlockData>
+    <h5>Không có sản phẩm</h5>
+</ng-template>
+<button class="btn btn-primary" (click)="OnLoadData()"> Lấy dữ liệu</button>
+<hr>
+<h2>NgSwitch</h2>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of user"
+    [ngSwitch]="item.country"
+    >
+        <span *ngSwitchCase="'VN'" class="text-danger">{{item.name}}--{{item.country}}</span>
+        <span *ngSwitchCase="'USA'" class="text-primary">{{item.name}}--{{item.country}}</span>
+        <span *ngSwitchDefault class="text-dark">{{item.name}}--{{item.country}}</span>
+    </li>
+</ul>
