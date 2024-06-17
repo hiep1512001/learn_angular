@@ -1,0 +1,17 @@
+{{fullname}}--{{phone}}
+<table class="table table-bordered" style="width:auto;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Số điện thoại</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of users">
+            <td >{{item.id}}</td>
+            <td >{{item.name}}</td>
+            <td >{{item.phone}}</td>
+        </tr>
+    </tbody>
+</table>

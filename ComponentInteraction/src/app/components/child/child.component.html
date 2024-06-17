@@ -1,0 +1,34 @@
+<div class="card" style="width: auto" >
+    <img src="https://th.bing.com/th/id/OIP.cUuD1xJjJQkcjfkbOkrF8QHaE_?rs=1&pid=ImgDetMain" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Child Component</h5>    
+        <label>Họ tên: {{name}}</label>
+        <label>Tình trạng hôn nhân: {{isMarried ? 'Đã kết hôn':'Chưa kết hôn'}}</label>
+        <label>Tuổi: {{age}}</label>
+    </div>
+    <form class="m-3">
+      <div class="form-group">
+        <label for="" class="form-label">Tên: {{fullname}}</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nhập dữ liệu"
+          [(ngModel)]="fullname"
+          [ngModelOptions]="{standalone:true}"
+        />
+      </div>
+      <div class="form-group">
+        <label for="" class="form-label">Số điện thoại: {{phone}}</label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Nhập số điện thoại"
+          [(ngModel)]="phone"
+          
+          [ngModelOptions]="{standalone:true}"
+        />
+      </div>
+      <button  type="button" class="btn btn-success mt-2" (click)="onClick()">Gửi dữ liệu </button>
+    </form>
+    
+  </div>

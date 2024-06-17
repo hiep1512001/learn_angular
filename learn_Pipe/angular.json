@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ComponentInteraction": {
+    "lear_Pipe": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/component-interaction",
+            "outputPath": "dist/lear-pipe",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,13 +37,9 @@
               }
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [
-            "node_modules/jquery/dist/jquery.min.js",
-            "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -73,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ComponentInteraction:build:production"
+              "buildTarget": "lear_Pipe:build:production"
             },
             "development": {
-              "buildTarget": "ComponentInteraction:build:development"
+              "buildTarget": "lear_Pipe:build:development"
             }
           },
           "defaultConfiguration": "development"
