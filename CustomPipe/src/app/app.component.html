@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" >
+      <table class=" table table-bordered border-success ">
+        <thead>
+          <tr>
+            <th>Tên Pipe</th>
+            <th>Đầu vào</th>
+            <th>Đầu ra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FormatData</td>
+            <td>{{content}}</td>
+            <td>{{content|Formatdata:60}}</td>
+          </tr>
+          <tr>
+            <td>SortNumber</td>
+            <td>
+              <p> {{arrayNUmber}}</p>
+             <button class="btn btn-warning" (click)="chuyenTrangThai()">{{trangThai}}</button>
+            </td>
+            <td>{{arrayNUmber|sortNumber:sortFilter}}</td>
+          </tr>
+          <tr>
+            <td>
+              
+            </td>
+            <td>
+              <input type="text" class="form-control" [(ngModel)]="name">
+            </td>
+            <td>
+              {{name|capitalpipe}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12">
+      <table class=" table table-bordered border-success ">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="idFilter">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="nameFilter">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="statusFilter">
+            </td>
+          </tr>
+          <tr *ngFor="let item of products |filter:idFilter:nameFilter:statusFilter">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr>
+    <div class="col-12">
+      <table class=" table table-bordered border-success ">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th (click)="onSort('name')">Name</th>
+            <th (click)="onSort('price')">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of products|sortTable:sortBy:sortValue">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price|currency:'VND':true}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
