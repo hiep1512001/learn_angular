@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title bg-info text-center">LifeCycle</h4>
+          <app-life-cycle-hook *ngIf="isShowing"
+          [tong]="tong"
+          ></app-life-cycle-hook>
+          <button class="btn btn-warning mt-2" (click)="onToggle()">Toggle</button>
+          <hr>
+          <div class="mb-3">
+            <label class="form-label">Số thứ nhất:</label>
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="soThuNhat"
+            /> 
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Số thứ hai:</label>
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="soThuHai"
+            /> 
+          </div>
+          <button (click)="onTinh()" class="btn btn-primary" type="button">Tính tổng</button>
+        </div>
+      </div>    
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title bg-info text-center " style="color: white;">OtherLifeCycle</h4>
+          <app-other-cycle-component>
+            <h4 #value class="text-primary">{{ngContent}}</h4>
+          </app-other-cycle-component>
+          <input type="text" class="form-control" #text>
+          <button class="btn btn-danger mt-2" type="button" (click)="onClick(text.value)">click me!</button>
+        </div>
+      </div>    
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title bg-info text-center " style="color: white;">ngAfterView ngAfterViewChecked</h4>
+         <ul class="list-group" *ngFor="let item of product">
+          <li class="list-group-item">{{item.id}}--{{item.name}}</li>
+         </ul>
+         <input placeholder="Nhập" type="text" class="form-control mt-2" #prod>
+         <button type="button" class="btn btn-warning mt-2" (click)="onAddProduct(prod.value)">Thêm sản phẩm</button>
+        </div>
+      </div>    
+    </div>
+  </div>
+</div>
