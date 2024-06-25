@@ -1,0 +1,32 @@
+<div class="mb-3">
+    <label class="form-label">ID</label>
+    <input class="form-control"
+        type="text"
+        readonly
+        [(ngModel)]="product.id"
+    />
+</div>
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <input class="form-control"
+        type="text"
+        [(ngModel)]="product.name"
+    />
+</div>
+<div class="mb-3">
+    <label class="form-label">Price</label>
+    <input class="form-control"
+        type="number"
+        [(ngModel)]="product.price"
+    />
+</div>
+<div class="mb-3">
+    <label for="" class="form-label">Status</label>
+    <select
+        class="form-select form-select-lg" [(ngModel)]="product.status">
+        <option value="true">Active</option>
+        <option value="false">Deactive</option>
+    </select>
+</div>
+
+<button class="btn btn-warning" (click)="onEdit()">Eidt</button>

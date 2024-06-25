@@ -8,44 +8,32 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
-const approute:Routes=[
-  {
-    path:'',
-    redirectTo:'/home',
-    pathMatch:'full'
-  },
-  {
-    path:'about',
-    component:AboutComponent
-  },
-  {
-    path:'contact',
-    component:ContactComponent
-  },
-  {
-    path:'home',
-    component:HomeComponent
-  },
-  {
-    path:'**',
-    component:NotFoundComponent
-  }
-];
-
+import { FormsModule } from '@angular/forms';
+import { ProductsComponent } from './components/products/products.component';
+//service
+import { ProductService } from './services/product.service';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductsComponent,
+    ProductDetailComponent,
+    ProductListComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(approute)
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

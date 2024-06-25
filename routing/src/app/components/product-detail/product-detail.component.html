@@ -1,0 +1,14 @@
+<label>ID: {{product?.id}}</label>
+<br>
+<label>NAME: {{product?.name}}</label>
+<br>
+<label>PRICE: {{product?.price|currency:'VND':true}}</label>
+<br>
+<label>STATUS: {{product?.status}}</label>
+<br>
+<a [routerLink]="['/products',2]">Sản phẩm 2</a>
+<hr>
+<button class="btn btn-warning m-2" (click)="onEdit()">Eidt</button>
+<button class="btn btn-danger m-2" (click)="onDelete()">Delete</button>
+<br>
+<button class="btn btn-primary m-2" (click)="onBackToList()">Back to list</button>

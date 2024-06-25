@@ -1,0 +1,46 @@
+
+<div class="mb-3">
+    <label for="" class="form-label">Name</label>
+    <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="name"
+    />  
+</div>
+<div class="mb-3">
+    <label for="" class="form-label">Price</label>
+    <input
+        type="numbers"
+        class="form-control"
+        
+        [(ngModel)]="price"
+    />    
+</div>
+<button class="btn btn-success m-2" 
+[routerLink]="['/products']" 
+[queryParams]="{name:name,price:price}"
+>Search on component</button>
+<button class="btn btn-primary m-2" (click)="onSearch()" 
+
+>Search by event</button>
+<br>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+           <th>ID</th> 
+           <th>NAME</th> 
+           <th>PRICE</th> 
+           <th>STATUS</th> 
+           <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products" [routerLink]="['/product',product.id]" >
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price|currency:'VND':true}}</td>
+            <td>{{product.status ? 'Active' : 'Deactive'}}</td>
+            <td ><button class="btn btn-warning">Xem chi tiết</button></td>
+        </tr>
+    </tbody>
+</table>
