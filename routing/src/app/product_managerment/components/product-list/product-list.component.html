@@ -37,7 +37,7 @@
     <tbody>
         <tr *ngFor="let product of products" [routerLink]="['/product',product.id]" >
             <td>{{product.id}}</td>
-            <td>{{product.name}}</td>
+            <td>{{product.name|capitalpipe}}</td>
             <td>{{product.price|currency:'VND':true}}</td>
             <td>{{product.status ? 'Active' : 'Deactive'}}</td>
             <td ><button class="btn btn-warning">Xem chi tiết</button></td>

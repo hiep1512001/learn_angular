@@ -1,4 +1,4 @@
-import { Product } from './../../models/product..class';
+import { Product } from '../../services/models/product..class';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';

@@ -1,7 +1,8 @@
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule,Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { ProductManagermentModule } from './product_managerment/product-managerment.module';
+//component
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './components/about/about.component';
@@ -9,30 +10,31 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
-import { ProductsComponent } from './components/products/products.component';
+import { LoginComponent } from './components/login/login.component';
 //service
-import { ProductService } from './services/product.service';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { authGuard } from './services/guards/auth.guard';
+import { accessGuard } from './services/guards/access.guard';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
     NotFoundComponent,
-    ProductsComponent,
-    ProductDetailComponent,
-    ProductListComponent,
-    EditProductComponent
+    AboutComponent,
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    //roter app import sau modul con
+    ProductManagermentModule,
     AppRoutingModule,
     FormsModule
+   
   ],
   providers: [
-    ProductService
+    authGuard,
+    accessGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -16,5 +16,8 @@ export class AppComponent  {
     //this._routerService.navigate([url]);
     this._routerService.navigateByUrl(url);
   }
+  onDeleteLocalStorage():void{
+    localStorage.removeItem('user');
+  }
 }
 
