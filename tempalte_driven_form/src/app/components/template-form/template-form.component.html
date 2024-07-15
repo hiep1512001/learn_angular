@@ -1,0 +1,96 @@
+
+        <div class="card">
+            <div class="card-header bg-primary text-white">Thông tin đăng nhập</div>
+            <form #frmUser="ngForm" (ngSubmit)="onSubmitForm(frmUser)">
+                <div class="card-body">
+                    <div >
+                        <label class="form-label">Username</label>
+                        <input class="form-control" type="text" placeholder="Nhập Username"
+                            name="txtUserName"
+                            [(ngModel)]="user.userName" 
+                            required="required"
+                            minlength="3"
+                            #username="ngModel">
+                        <span class="text-bg-danger mt-1" *ngIf=" username.dirty && username.errors?.['required']" >
+                            Bạn chưa nhập usernmar!
+                        </span>      
+                        <span class="text-bg-danger mt-1" *ngIf=" username.dirty && username.errors?.['minlength']" >
+                            UserName phải trên 3 ký tự
+                        </span>                                                    
+                    </div>
+                    <div>
+                        <label class="form-label">Password</label>
+                        <input class="form-control" 
+                            type="password" 
+                            placeholder="Nhập Password"
+                            name="txtPassWord"
+                            [(ngModel)]="user.passWord"
+                            required="required"
+                            minlength="3"
+                            #password="ngModel">
+                            <span class="text-bg-danger mt-1" *ngIf=" password.dirty && password.errors?.['required']" >
+                                Bạn chưa nhập Password!
+                            </span>      
+                            <span class="text-bg-danger mt-1" *ngIf=" password.dirty && password.errors?.['minlength']" >
+                                Password phải trên 3 ký tự
+                            </span> 
+                    </div>
+                    <div ngModelGroup="contact">
+                        <div>
+                            <label class="form-label">Fullname</label>
+                            <input class="form-control" 
+                                type="text" 
+                                placeholder="Nhập Fullname"
+                                name="txtFullName"
+                                [(ngModel)]="user.fullName"
+                                required="required"
+                                minlength="3"
+                                #fullname="ngModel">
+                                <span class="text-bg-danger mt-1" *ngIf=" fullname.dirty && fullname.errors?.['required']" >
+                                    Bạn chưa nhập Fullname!
+                                </span>      
+                                <span class="text-bg-danger mt-1" *ngIf=" fullname.dirty && fullname.errors?.['minlength']" >
+                                    Fullname phải trên 3 ký tự
+                                </span> 
+                        </div>
+                        <div>
+                            <label class="form-label">Email</label>
+                            <input class="form-control" 
+                                type="email" 
+                                placeholder="Nhập Email"
+                                name="txtEmail"
+                                [(ngModel)]="user.email"
+                                required="required"
+                                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                                #email="ngModel">
+                                <span class="text-bg-danger mt-1" *ngIf=" email.dirty && email.errors?.['required']" >
+                                    Bạn chưa nhập Email!
+                                </span>      
+                                <span class="text-bg-danger mt-1" *ngIf=" email.dirty && email.errors?.['pattern']" >
+                                    Bạn chưa nhập đúng định dạng email!
+                                </span>      
+                        </div>
+                        <div >
+                            <label class="form-label">Số điện thoại</label>
+                            <input class="form-control" 
+                                type="number" 
+                                placeholder="Nhập Số điện thoại" 
+                                maxlength="10" 
+                                required="required"
+                                minlength="10"
+                                maxlength="12"
+                                name="txtSDT"
+                                [(ngModel)]="user.sdt"
+                                #sdt="ngModel">
+                                <span class="text-bg-danger mt-1" *ngIf=" sdt.dirty && sdt.errors?.['minlength']" >
+                                    Số điện thoại phải trên 10 số
+                                </span> 
+                        </div>
+                    </div>            
+                </div>
+                    <button class="btn btn-primary m-2 rounded" type="submit">Lưu</button>
+                    <button class="btn btn-primary m-2 rounded" type="button" (click)="onReset(frmUser)">Reset</button>
+            </form>
+            <div class="card-footer bg-primary text-white">template-driven form</div>
+        </div>
+

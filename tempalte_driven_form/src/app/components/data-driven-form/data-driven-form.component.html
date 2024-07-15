@@ -1,0 +1,70 @@
+<div class="card">
+    <div class="card-header bg-warning">Thông tin đăng nhập</div>
+    <form [formGroup]="frmUser" (ngSubmit)="onSubmitForm()" >
+        <div class="card-body">
+            <div >
+                <label class="form-label">Username</label>
+                <input class="form-control" type="text" placeholder="Nhập Username"
+                    name="txtUserName"
+                    formControlName="username"> 
+                    <span class="text-bg-danger" *ngIf="frmUser.controls['username'].dirty &&
+                     frmUser.controls['username'].errors?.['required']">
+                    Vui lòng nhập username</span>  
+                    <span class="text-bg-danger" *ngIf="frmUser.controls['username'].dirty &&
+                     frmUser.controls['username'].errors?.['minlength']">
+                    Username trên 3 ký tự</span>                                          
+            </div>
+            <div>
+                <label class="form-label">Password</label>
+                <input class="form-control"
+                    type="password" 
+                    placeholder="Nhập Password"
+                    formControlName="password"
+                    name="txtPassWord">
+                    <span class="text-bg-danger" *ngIf="frmUser.controls['password'].dirty &&
+                     frmUser.controls['password'].errors?.['required']">
+                     Vui lòng nhập password</span>
+            </div>
+            <div >
+                <div>
+                    <label class="form-label">Fullname</label>
+                    <input class="form-control" 
+                        type="text" 
+                        placeholder="Nhập Fullname"
+                        formControlName="fullname"
+                        name="txtFullName">
+                        <app-errors-validate [control]="frmUser.controls['fullname']">
+                    
+                        </app-errors-validate> 
+                </div>
+                <div>
+                    <label class="form-label">Email</label>
+                    <input class="form-control" 
+                        type="email" 
+                        placeholder="Nhập Email"
+                        formControlName="email"
+                        name="txtEmail">   
+                        <span class="text-bg-danger" *ngIf="frmUser.controls['email'].dirty &&
+                     frmUser.controls['email'].errors?.['pattern']">
+                     Email định dạng không đúng</span>  
+                </div>
+                <div >
+                    <label class="form-label">Số điện thoại</label>
+                    <input class="form-control" 
+                        type="number" 
+                        placeholder="Nhập Số điện thoại" 
+                        formControlName="phone"
+                        maxlength="12" 
+                        name="txtSDT"> 
+                        <span class="text-bg-danger" *ngIf="frmUser.controls['phone'].dirty &&
+                     frmUser.controls['phone'].errors?.['minlength']">
+                     Số điện thoại phải trên 10 số</span>
+                </div>
+            </div>            
+        </div>
+            <button class="btn btn-primary m-2 rounded" type="submit">Lưu</button>
+            <button class="btn btn-primary m-2 rounded" type="button" (click)="onReset()">Reset</button>
+    </form>
+    <div class="card-footer bg-warning">Data-driven form</div>
+</div>
+
